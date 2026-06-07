@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav
       className={cn(
         "w-full sticky top-0 left-0 right-0 transition-colors z-90",
-        scrolled ? "bg-brand-color" : "bg-transparent",
+        scrolled ? "bg-brand-color" : "bg-white shadow-md",
       )}
     >
       <Container className="flex items-center justify-between">

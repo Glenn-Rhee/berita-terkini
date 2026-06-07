@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Nunito_Sans, Montserrat } from "next/font/google";
+import {
+  Inter,
+  Poppins,
+  Nunito_Sans,
+  Montserrat,
+  Sora,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,6 +36,11 @@ const monserrat = Montserrat({
   subsets: ["latin"],
 });
 
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} ${nunitoSans.variable} ${monserrat.variable} h-full antialiased`}
+      className={`${inter.variable} ${poppins.variable} ${sora.variable} ${nunitoSans.variable} ${monserrat.variable} h-full antialiased`}
     >
       <body className="bg-background min-h-full">
         <Navbar />

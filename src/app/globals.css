@@ -5,6 +5,7 @@
     --font-inter: var(--font-inter);
     --font-nunitoSans: var(--font-nunitoSans);
     --font-monserrat: var(--font-monserrat);
+    --font-sora: var(--font-sora);
 
     --color-background: #F2F2F2;
     --color-invert: #F2F2F2;
@@ -12,6 +13,7 @@
     --color-surface-soft: #E0E0E0;
     --color-disable: #BDBDBD;
     --color-banner: #00CAA3;
+    --color-secondary: #E2F2FF;
 
     --color-primary-50: #E3F2FF;
     --color-primary-100: #BBDFFF;
