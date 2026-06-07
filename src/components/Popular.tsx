@@ -1,13 +1,10 @@
 import Image from "next/image";
+import SubHeading from "./SubHeading";
 
 export default function Popular() {
   return (
     <section className="my-16 flex flex-col gap-y-8">
-      <div className="w-full ps-4 relative before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-brand-color before:rounded-fu">
-        <h4 className="font-bold text-2xl font-nunitoSans text-black">
-          Berita Terpopuler
-        </h4>
-      </div>
+      <SubHeading>Berita Terpopuler</SubHeading>
       <div className="grid grid-cols-3 gap-x-4 px-4">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="flex gap-x-4">
