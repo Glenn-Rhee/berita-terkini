@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Container from "@/components/Container";
 import Headline from "@/components/Headline";
 import Popular from "@/components/Popular";
@@ -9,6 +10,7 @@ export default function HomePage() {
       <Headline />
       <Popular />
       <Recomendation />
+      <Banner />
     </Container>
   );
 }

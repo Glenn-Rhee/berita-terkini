@@ -3,20 +3,22 @@
 @theme {
     --font-poppins: var(--font-poppins);
     --font-inter: var(--font-inter);
-    --font-nunitoSans: var(--nunitoSans);
+    --font-nunitoSans: var(--font-nunitoSans);
+    --font-monserrat: var(--font-monserrat);
 
     --color-background: #F2F2F2;
     --color-invert: #F2F2F2;
     --color-brand-color: #0090FF;
     --color-surface-soft: #E0E0E0;
     --color-disable: #BDBDBD;
+    --color-banner: #00CAA3;
 
     --color-primary-50: #E3F2FF;
     --color-primary-100: #BBDFFF;
     --color-primary-200: #93CBFC;
     --color-primary-300: #5FB7FF;
     --color-primary-400: #4AA7F9;
-    --color-primary-500: #0099FF;
+    --color-primary-500: #136EF0;
     --color-primary-600: #2D8BE9;
     --color-primary-700: #2879D6;
     --color-primary-800: #2469C4;
