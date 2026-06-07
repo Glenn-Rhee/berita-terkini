@@ -29,7 +29,7 @@ export default function Navbar() {
     >
       <Container className="flex items-center justify-between">
         <Link href={"/"} className="flex items-center gap-x-3">
-          <BrandIcon />
+          <BrandIcon fill={scrolled ? "white" : undefined} />
           <h1
             className={cn(
               "font-poppins font-semibold text-xl",
@@ -47,9 +47,11 @@ export default function Navbar() {
                 key={menu.text}
                 href={menu.href}
                 className={cn(
-                  "font-inter transition-colors",
+                  "font-inter transition-colors duration-300",
                   scrolled
-                    ? "text-invert hover:text-white"
+                    ? pathname === menu.href
+                      ? "text-white font-semibold"
+                      : "text-invert hover:text-white font-medium"
                     : pathname === menu.href
                       ? "text-brand-color font-semibold"
                       : "font-medium text-gray-3 hover:text-brand-color",

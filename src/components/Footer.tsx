@@ -8,9 +8,8 @@ import { menuNavbar } from "@/lib/menuNavbar";
 import SendIcon from "@/icon/send-icon";
 
 export default function Footer() {
-  console.log(typeof menuNavbar);
   return (
-    <footer className="w-full bg-dark-600 sticky bottom-0 right-0 left-0">
+    <footer className="w-full bg-dark-600">
       <Container className="flex gap-x-16 justify-between text-white">
         <div className="flex flex-col gap-y-16">
           <div className="flex flex-col gap-y-4">
