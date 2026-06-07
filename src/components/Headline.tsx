@@ -7,9 +7,9 @@ import Link from "next/link";
 
 export default function Headline() {
   return (
-    <main className="h-[50dvh] flex flex-col items-center gap-y-16 w-full my-6">
+    <main className="h-[50dvh] flex flex-col items-center gap-y-16 w-full my-16">
       <div className="flex justify-between w-full">
-        <div className="font-inter flex flex-col gap-y-3 w-lg">
+        <div className="font-inter flex flex-col gap-y-3 w-lg lg:">
           <h6 className="text-dark-400 font-semibold">Headline</h6>
           <h1 className="font-nunitoSans font-bold text-4xl text-gray-1">
             Respons PSSI Soal Opsi Pindah dari GBK jika Lolos Babak 3
@@ -17,7 +17,7 @@ export default function Headline() {
           </h1>
           <p className="text-gray-2">
             Ketua Badan Tim Nasional (BTN) PSSI Sumardji merespons peluang
-            Timnas Indonesia pindah dari Stadion Utama Gelora Bung Karno (GBK)
+            Timnas Indonesia pindah dari Stadion Utama Gelora Bung Karno (GBK) 
             apabila lolos ke putaran ketiga Kualifikasi Piala Dunia 2026.
           </p>
           <span className="text-sm flex items-center gap-x-2 font-medium text-dark-400">
