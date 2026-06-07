@@ -107,7 +107,7 @@ export default function Footer() {
           <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
             Berlangganan Berita Terbaru
           </h6>
-          <div className="flex w-84.75 h-16 pe-4 items-center bg-white boder border-surface-soft rounded-lg">
+          <div className="flex w-84.75 h-16 pe-4 items-center bg-white border border-surface-soft rounded-lg">
             <input
               type="text"
               className="
