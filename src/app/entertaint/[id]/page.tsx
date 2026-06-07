@@ -6,7 +6,7 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-export default async function NewDetail(props: Props) {
+export default async function EntertaintDetailPage(props: Props) {
   const { params } = props;
   const { id } = await params;
   const dataLinks: BreadcrumProps["dataLinks"] = [
@@ -15,11 +15,11 @@ export default async function NewDetail(props: Props) {
       title: "Beranda",
     },
     {
-      href: "/new",
-      title: "Terbaru",
+      href: "/entertaint",
+      title: "Hiburan",
     },
     {
-      href: "/new/1",
+      href: "/entertaint/1",
       title: "Detail",
     },
   ];

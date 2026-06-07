@@ -17,7 +17,7 @@ export default function Headline() {
           </h1>
           <p className="text-gray-2">
             Ketua Badan Tim Nasional (BTN) PSSI Sumardji merespons peluang
-            Timnas Indonesia pindah dari Stadion Utama Gelora Bung Karno (GBK) 
+            Timnas Indonesia pindah dari Stadion Utama Gelora Bung Karno (GBK)
             apabila lolos ke putaran ketiga Kualifikasi Piala Dunia 2026.
           </p>
           <span className="text-sm flex items-center gap-x-2 font-medium text-dark-400">
@@ -32,7 +32,7 @@ export default function Headline() {
           </Link>
         </div>
         <Image
-          src={"/headline-ex.png"}
+          src={"/img/headline-ex.png"}
           alt="Headline Image"
           width={500}
           height={417}
