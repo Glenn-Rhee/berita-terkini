@@ -1,22 +1,15 @@
-import Card from "@/components/Card";
 import Container from "@/components/Container";
-import FooterSection from "@/components/FooterSection";
-import HeaderSection from "@/components/HeaderSection";
+import NewsListContent from "@/components/NewListContent";
 
 export default function LifeStylePage() {
   return (
     <Container>
-      <section className="flex flex-col gap-y-8">
-        <HeaderSection title="Terbaru" />
-        <div className="flex flex-col gap-y-32 justify-between">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
-            {Array.from({ length: 16 }).map((_, i) => (
-              <Card key={i} />
-            ))}
-          </div>
-          <FooterSection />
-        </div>
-      </section>
+      <NewsListContent
+        apiUrl="https://berita-indo-api-next.vercel.app/api/antara-news/lifestyle"
+        itemsPerPage={16}
+        title="Gaya Hidup"
+        category="Gaya Hidup"
+      />
     </Container>
   );
 }
