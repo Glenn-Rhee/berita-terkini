@@ -16,6 +16,7 @@ export default function Card(props: CardProps) {
         alt={data.title + " image"}
         width={220}
         height={220}
+        loading="lazy"
         className="aspect-square w-full object-cover rounded-xl"
       />
       <h6 className="line-clamp-3 text-justify font-semibold font-inter text-lg text-gray-1">
