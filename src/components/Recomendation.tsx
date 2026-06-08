@@ -97,15 +97,41 @@ export default function Recomendation() {
       </header>{" "}
       <div className="flex flex-col gap-y-32 justify-between">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
-          {errorMsg
-            ? Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-                <PopularCardError key={i} message={errorMsg} />
-              ))
-            : paginatedData
-              ? paginatedData.map((data, i) => <Card data={data} key={i} />)
-              : Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-                  <CardSkeleton key={i} />
-                ))}
+          {errorMsg ? (
+            Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+              <PopularCardError key={i} message={errorMsg} />
+            ))
+          ) : paginatedData === null ? (
+            Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+              <CardSkeleton key={i} />
+            ))
+          ) : paginatedData.length === 0 ? (
+            <div className="col-span-2 md:col-span-4 flex flex-col font-inter items-center justify-center gap-y-3 py-16 text-center">
+              <div className="size-16 rounded-full bg-gray-100 flex items-center justify-center">
+                <SearchIcon />
+              </div>
+              <p className="font-nunitoSans font-bold text-xl text-gray-1">
+                Hasil tidak ditemukan
+              </p>
+              <p className="font-inter text-sm text-dark-400 max-w-xs">
+                Tidak ada berita yang cocok dengan{" "}
+                <span className="font-semibold">{valueSearch}</span>. Coba kata
+                kunci lain.
+              </p>
+              <button
+                onClick={() => {
+                  setDataRecomendation(originalData);
+                  setValueSearch("");
+                  setCurrentPage(1);
+                }}
+                className="mt-2 text-sm font-semibold text-brand-color hover:underline"
+              >
+                Tampilkan semua berita
+              </button>
+            </div>
+          ) : (
+            paginatedData.map((data, i) => <Card data={data} key={i} />)
+          )}
         </div>
         <FooterSection
           currentPage={currentPage}
