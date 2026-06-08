@@ -8,6 +8,7 @@ import ChevronRight from "@/icon/ChevronRight";
 import { NewsData } from "@/types";
 import { useState } from "react";
 import { RefreshCcw, WifiOffIcon } from "lucide-react";
+import getFormattedDate from "@/helper/getFormattedDate";
 
 interface HeadlineContentProps {
   dataHeadline: NewsData[];
@@ -18,14 +19,6 @@ export default function HeadlineContent(props: HeadlineContentProps) {
   const { dataHeadline: initialData, errorMsg } = props;
   const [dataHeadline, setDataHeadline] = useState<NewsData>(initialData[0]);
   const [pagination, setPagination] = useState<number>(1);
-  const formattedDate = new Date(dataHeadline.isoDate).toLocaleDateString(
-    "id-ID",
-    {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    },
-  );
 
   if (errorMsg) {
     return (
@@ -54,7 +47,7 @@ export default function HeadlineContent(props: HeadlineContentProps) {
           </h1>
           <p className="text-gray-2">{dataHeadline.description}</p>
           <span className="text-sm flex items-center gap-x-2 font-medium text-dark-400">
-            <CalendarIcon /> {formattedDate}
+            <CalendarIcon /> {getFormattedDate(dataHeadline.isoDate)}
           </span>
           <Link
             href={dataHeadline.link}
