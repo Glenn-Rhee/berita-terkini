@@ -2,11 +2,20 @@
 import Card from "@/components/Card";
 import FooterSection from "@/components/FooterSection";
 import ResponseError from "@/error/ResponseError";
-import { NewsData, ResponsePayload } from "@/types";
+import {
+  DataInternasional,
+  NewsDataNormalized as NewsData,
+  NewsDataNormalized,
+  ResponsePayload,
+} from "@/types";
 import { useEffect, useState } from "react";
 import CardSkeleton from "./CardSkeleton";
 import { PopularCardError } from "./PopularCardError";
 import SearchIcon from "@/icon/SearchIcon";
+import {
+  normalizeInternational,
+  normalizeNews,
+} from "@/helper/normalizeDataNews";
 
 export interface NewsListContentProps {
   apiUrl: string;
@@ -27,8 +36,8 @@ export default function NewsListContent({
   title,
   category = "Hot",
 }: NewsListContentProps) {
-  const [dataNews, setDataNews] = useState<NewsData[] | null>(null);
-  const [originalData, setOriginalData] = useState<NewsData[]>([]);
+  const [dataNews, setDataNews] = useState<NewsDataNormalized[] | null>(null);
+  const [originalData, setOriginalData] = useState<NewsDataNormalized[]>([]);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [valueSearch, setValueSearch] = useState<string>("");
@@ -38,16 +47,26 @@ export default function NewsListContent({
       try {
         const res = await fetch(apiUrl);
         if (!res.ok) throw new ResponseError(res.status, "Failed get data!");
-        const data = (await res.json()) as ResponsePayload<NewsData[]>;
-        setDataNews(data.data);
-        setOriginalData(data.data);
+        if (category === "Internasional") {
+          const data = (await res.json()) as ResponsePayload<
+            DataInternasional[]
+          >;
+          const normalized = normalizeInternational(data.data);
+          setDataNews(normalized);
+          setOriginalData(normalized);
+        } else {
+          const data = (await res.json()) as ResponsePayload<NewsData[]>;
+          const normalized = normalizeNews(data.data);
+          setDataNews(normalized);
+          setOriginalData(normalized);
+        }
       } catch (error) {
         if (error instanceof ResponseError) setErrorMsg(error.message);
         else setErrorMsg("Internal server error!");
       }
     };
     fetchedData();
-  }, [apiUrl]);
+  }, [apiUrl, category]);
 
   const totalPages = dataNews ? Math.ceil(dataNews.length / itemsPerPage) : 0;
   const paginatedData = dataNews

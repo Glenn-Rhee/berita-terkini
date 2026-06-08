@@ -21,6 +21,6 @@ export const menuNavbar = [
   },
   {
     text: "Internasional",
-    href: "/inter",
+    href: "/international",
   },
 ];

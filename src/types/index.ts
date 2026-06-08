@@ -4,10 +4,21 @@ export interface ResponsePayload<T = unknown> {
   data: T;
 }
 
-export interface NewsData {
+export interface NewsDataNormalized {
   title: string;
   link: string;
   isoDate: string;
   image: string;
   description: string;
+}
+
+export interface DataInternasional {
+  title: string;
+  link: string;
+  contentSnippet: string;
+  isoDate: string;
+  image: {
+    small: string;
+    large: string;
+  };
 }
