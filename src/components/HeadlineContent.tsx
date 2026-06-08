@@ -40,7 +40,7 @@ export default function HeadlineContent(props: HeadlineContentProps) {
   return (
     <>
       <div className="flex justify-between w-full">
-        <div className="font-inter flex flex-col gap-y-3 w-lg lg:">
+        <div className="font-inter flex flex-col gap-y-3 w-lg flex-1 pe-56">
           <h6 className="text-dark-400 font-semibold">Headline</h6>
           <h1 className="font-nunitoSans font-bold text-4xl text-gray-1">
             {dataHeadline.title}
@@ -57,14 +57,16 @@ export default function HeadlineContent(props: HeadlineContentProps) {
             Baca Selengkapnya <ArrowuprightIcon />
           </Link>
         </div>
-        <Image
-          src={dataHeadline.image}
-          alt="Headline Image"
-          width={500}
-          height={417}
-          loading="eager"
-          className="object-cover rounded-[20px] aspect-video w-auto h-auto"
-        />
+        <div className="relative w-125 h-104.25 shrink-0">
+          {" "}
+          <Image
+            src={dataHeadline.image}
+            alt="Headline Image"
+            fill
+            loading="eager"
+            className="object-cover rounded-[20px]"
+          />
+        </div>
       </div>
       <div className="flex items-center gap-x-4 font-inter">
         <button
