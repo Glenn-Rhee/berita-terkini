@@ -54,7 +54,7 @@ export default function NewsContent() {
   return (
     <div className="grid md:grid-cols-[1fr_30rem] gap-x-5.5 my-4 md:my-16">
       <div className="w-full flex flex-col gap-y-8 md:gap-y-24">
-        <div className="w-full flex flex-col gap-y-2 md:gap-y-8">
+        <div className="w-full flex flex-col gap-y-2 md:gap-y-8 h-90 bgred90">
           <h1 className="text-gray-1 font-semibold font-sora text-xl md:text-4xl">
             Pj. Gubernur Adhy Tekankan Pelayanan Berkualitas saat Sharing
             Session di RSUD Dr. Soetomo
@@ -65,7 +65,7 @@ export default function NewsContent() {
             22 Jan 2024
           </span>
           <figure className="flex flex-col gap-y-1.5">
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-128">
               <Image
                 src={"/img/headline-ex.png"}
                 alt={"Image detail"}
@@ -80,7 +80,7 @@ export default function NewsContent() {
           </figure>
         </div>
 
-        <div className="flex flex-col gap-y-8">
+        <div className="flex flex-col gap-y-8 md:mt-80">
           <p className="font-medium font-inter text-dark-400">
             Jakarta, CNN Indonesia --Ketua Badan Tim Nasional (BTN) PSSI
             Sumardji merespons peluang Timnas Indonesia pindah dari Stadion
