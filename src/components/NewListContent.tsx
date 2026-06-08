@@ -8,16 +8,24 @@ import CardSkeleton from "./CardSkeleton";
 import { PopularCardError } from "./PopularCardError";
 import SearchIcon from "@/icon/SearchIcon";
 
-interface NewsListContentProps {
+export interface NewsListContentProps {
   apiUrl: string;
   itemsPerPage: number;
   title: string;
+  category?:
+    | "Terbaru"
+    | "Hiburan"
+    | "Gaya Hidup"
+    | "Olahraga"
+    | "Internasional"
+    | "Hot";
 }
 
 export default function NewsListContent({
   apiUrl,
   itemsPerPage,
   title,
+  category = "Hot",
 }: NewsListContentProps) {
   const [dataNews, setDataNews] = useState<NewsData[] | null>(null);
   const [originalData, setOriginalData] = useState<NewsData[]>([]);
@@ -123,7 +131,9 @@ export default function NewsListContent({
               </button>
             </div>
           ) : (
-            paginatedData.map((data, i) => <Card data={data} key={i} />)
+            paginatedData.map((data, i) => (
+              <Card category={category} data={data} key={i} />
+            ))
           )}
         </div>
 

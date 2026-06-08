@@ -5,7 +5,7 @@ export default function NewPageContent() {
     <NewsListContent
       apiUrl="https://berita-indo-api-next.vercel.app/api/antara-news/terkini"
       itemsPerPage={16}
-      title="Cari di sini..."
+      title="Terbaru"
     />
   );
 }
