@@ -1,5 +1,5 @@
 import getFormattedDate from "@/helper/getFormattedDate";
-import { NewsData } from "@/types";
+import { NewsDataNormalized as NewsData } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { NewsListContentProps } from "./NewListContent";
@@ -12,15 +12,16 @@ interface CardProps {
 export default function Card(props: CardProps) {
   const { data, category } = props;
   return (
-    <Link href={data.link} className="flex gap-y-4 flex-col w-64">
-      <Image
-        src={data.image}
-        alt={data.title + " image"}
-        width={220}
-        height={220}
-        loading="lazy"
-        className="aspect-square w-full object-cover rounded-xl"
-      />
+    <Link href={data.link} className="flex gap-y-4 flex-col w-full">
+      <div className="w-full relative h-48">
+        <Image
+          src={data.image}
+          alt={data.title + " image"}
+          fill
+          loading="lazy"
+          className="aspect-square w-full object-cover rounded-xl"
+        />
+      </div>
       <h6 className="line-clamp-3 text-justify font-semibold font-inter text-lg text-gray-1">
         {data.description}
       </h6>

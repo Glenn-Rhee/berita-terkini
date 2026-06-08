@@ -5,19 +5,21 @@ import ArrowuprightIcon from "@/icon/ArrowuprightIcon";
 import CalendarIcon from "@/icon/CalendarIcon";
 import ChevronLeft from "@/icon/ChevronLeft";
 import ChevronRight from "@/icon/ChevronRight";
-import { NewsData } from "@/types";
 import { useState } from "react";
 import { RefreshCcw, WifiOffIcon } from "lucide-react";
 import getFormattedDate from "@/helper/getFormattedDate";
+import { NewsDataNormalized } from "@/types";
 
 interface HeadlineContentProps {
-  dataHeadline: NewsData[];
+  dataHeadline: NewsDataNormalized[];
   errorMsg: string | null;
 }
 
 export default function HeadlineContent(props: HeadlineContentProps) {
   const { dataHeadline: initialData, errorMsg } = props;
-  const [dataHeadline, setDataHeadline] = useState<NewsData>(initialData[0]);
+  const [dataHeadline, setDataHeadline] = useState<NewsDataNormalized>(
+    initialData[0],
+  );
   const [pagination, setPagination] = useState<number>(1);
 
   if (errorMsg) {
@@ -39,25 +41,27 @@ export default function HeadlineContent(props: HeadlineContentProps) {
 
   return (
     <>
-      <div className="flex justify-between w-full">
-        <div className="font-inter flex flex-col gap-y-3 w-lg flex-1 pe-56">
+      <div className="flex flex-col md:flex-row justify-between w-full">
+        <div className="font-inter flex flex-col gap-y-0 md:gap-y-3 md:w-lg flex-1 pe-8 md:pe-56">
           <h6 className="text-dark-400 font-semibold">Headline</h6>
-          <h1 className="font-nunitoSans font-bold text-4xl text-gray-1">
+          <h1 className="font-nunitoSans font-bold text-2xl md:text-4xl text-gray-1">
             {dataHeadline.title}
           </h1>
-          <p className="text-gray-2">{dataHeadline.description}</p>
+          <p className="text-gray-2 hidden md:block">
+            {dataHeadline.description}
+          </p>
           <span className="text-sm flex items-center gap-x-2 font-medium text-dark-400">
             <CalendarIcon /> {getFormattedDate(dataHeadline.isoDate)}
           </span>
           <Link
             href={dataHeadline.link}
             target="_blank"
-            className="text-brand-color font-medium flex items-center gap-x-2 mt-4"
+            className="text-brand-color font-medium flex items-center gap-x-2 mt-0 md:mt-4"
           >
             Baca Selengkapnya <ArrowuprightIcon />
           </Link>
         </div>
-        <div className="relative w-125 h-104.25 shrink-0">
+        <div className="relative w-full h-full md:w-125 md:h-104.25 shrink-0 mt-4 md:mt-0">
           {" "}
           <Image
             src={dataHeadline.image}
@@ -67,8 +71,11 @@ export default function HeadlineContent(props: HeadlineContentProps) {
             className="object-cover rounded-[20px]"
           />
         </div>
+        <p className="text-gray-2 block md:hidden mt-1">
+          {dataHeadline.description}
+        </p>
       </div>
-      <div className="flex items-center gap-x-4 font-inter">
+      <div className="items-center gap-x-4 font-inter hidden md:flex">
         <button
           className="cursor-pointer"
           disabled={pagination <= 1}

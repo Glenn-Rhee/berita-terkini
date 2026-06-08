@@ -40,7 +40,7 @@ export default function FooterSection({
   };
 
   return (
-    <div className="flex justify-between items-center font-inter">
+    <div className="hidden md:flex justify-between items-center font-inter">
       <span className="text-gray-1">
         Showing {startItem} to {endItem} of {totalItems} results
       </span>

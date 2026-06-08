@@ -6,7 +6,7 @@ import Recomendation from "@/components/Recomendation";
 
 export default function HomePage() {
   return (
-    <Container className="min-h-full w-full flex flex-col gap-y-16">
+    <Container className="min-h-full w-full flex flex-col gap-y-4 md:gap-y-16">
       <Headline />
       <Popular />
       <Recomendation />

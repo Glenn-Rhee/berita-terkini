@@ -13,7 +13,7 @@ export default function SubHeading(props: SubHeadingProps) {
         className,
       )}
     >
-      <h4 className="font-bold text-2xl font-nunitoSans text-black">
+      <h4 className="font-bold text-xl md:text-2xl font-nunitoSans text-black">
         {children}
       </h4>
     </div>

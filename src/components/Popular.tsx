@@ -2,7 +2,7 @@
 import SubHeading from "./SubHeading";
 import CardPopular from "./CardPopular";
 import { useEffect, useState } from "react";
-import { NewsData, ResponsePayload } from "@/types";
+import { NewsDataNormalized as NewsData, ResponsePayload } from "@/types";
 import ResponseError from "@/error/ResponseError";
 import NewsCardSkeleton from "./NewsCardSkeleton";
 import { PopularCardError } from "./PopularCardError";
@@ -34,9 +34,9 @@ export default function Popular() {
     fetchedData();
   }, []);
   return (
-    <section className="my-16 flex flex-col gap-y-8">
+    <section className="my-32 md:my-16 flex flex-col md:gap-y-8">
       <SubHeading>Berita Terpopuler</SubHeading>
-      <div className="grid grid-cols-3 gap-x-4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-8 md:mt-0 gap-4 px-2 md:px-4">
         {errorMsg
           ? Array.from({ length: 3 }).map((_, i) => (
               <PopularCardError key={i} message={errorMsg} />

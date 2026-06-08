@@ -10,9 +10,9 @@ import SendIcon from "@/icon/send-icon";
 export default function Footer() {
   return (
     <footer className="w-full bg-dark-600">
-      <Container className="flex gap-x-16 justify-between text-white">
-        <div className="flex flex-col gap-y-16">
-          <div className="flex flex-col gap-y-4">
+      <Container className="flex flex-col md:flex-row gap-8 md:gap-16 py-8 md:py-16 justify-between text-white">
+        <div className="flex flex-col gap-y-16 order-last md:order-first">
+          <div className="flex flex-col gap-y-4 order-last md:order-first">
             <div className="flex items-center gap-x-4">
               <BrandIcon fill="white" />
               <h2 className="font-semibold font-poppins text-3xl text-white">
@@ -53,57 +53,59 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-4">
-          <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
-            Telusuri
-          </h6>
-          <ul className="flex flex-col gap-y-4">
-            {menuNavbar.map((menu) => (
-              <li key={menu.text}>
+        <div className="flex md:justify-start justify-center gap-x-24 md:gap-x-48">
+          <div className="flex flex-col gap-y-2 md:gap-y-4">
+            <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
+              Telusuri
+            </h6>
+            <ul className="flex flex-col gap-y-2 md:gap-y-4">
+              {menuNavbar.map((menu) => (
+                <li key={menu.text}>
+                  <Link
+                    href={menu.href}
+                    className="hover:underline font-medium text-invert font-inter"
+                  >
+                    {menu.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-y-2 md:gap-y-4">
+            <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
+              Bantuan
+            </h6>
+            <ul className="flex flex-col gap-y-2 md:gap-y-4">
+              <li>
                 <Link
-                  href={menu.href}
+                  href={"#"}
                   className="hover:underline font-medium text-invert font-inter"
                 >
-                  {menu.text}
+                  Kontak Kami
                 </Link>
               </li>
-            ))}
-          </ul>
+              <li>
+                <Link
+                  href={"#"}
+                  className="hover:underline font-medium text-invert font-inter"
+                >
+                  Laporan Pembajakan
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"#"}
+                  className="hover:underline font-medium text-invert font-inter"
+                >
+                  Kebijakan
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-y-4">
-          <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
-            Bantuan
-          </h6>
-          <ul className="flex flex-col gap-y-4">
-            <li>
-              <Link
-                href={"#"}
-                className="hover:underline font-medium text-invert font-inter"
-              >
-                Kontak Kami
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"#"}
-                className="hover:underline font-medium text-invert font-inter"
-              >
-                Laporan Pembajakan
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"#"}
-                className="hover:underline font-medium text-invert font-inter"
-              >
-                Kebijakan
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="flex flex-col gap-y-5.5">
+        <div className="flex flex-col gap-y-2 md:gap-y-5.5 order-first md:order-last">
           <h6 className="font-nunitoSans text-[22px] font-semibold text-white">
             Berlangganan Berita Terbaru
           </h6>

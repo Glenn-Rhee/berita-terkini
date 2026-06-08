@@ -98,7 +98,7 @@ export default function Banner() {
   };
 
   return (
-    <section className="flex flex-col gap-y-8 my-16 w-full">
+    <section className="flex-col gap-y-8 my-16 w-full hidden md:flex">
       <div
         className="relative overflow-hidden rounded-3xl select-none"
         style={{ cursor: isDragging ? "grabbing" : "grab" }}

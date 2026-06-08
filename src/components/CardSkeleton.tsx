@@ -1,6 +1,6 @@
 export default function CardSkeleton() {
   return (
-    <div className="flex gap-y-4 flex-col w-64">
+    <div className="flex gap-y-4 flex-col w-full">
       <div className="aspect-square w-full rounded-xl bg-gray-200 animate-pulse" />
 
       <div className="flex flex-col gap-y-2">

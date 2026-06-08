@@ -93,14 +93,14 @@ export default function NewsListContent({
   };
 
   return (
-    <section className="flex flex-col gap-y-8">
+    <section className="flex flex-col gap-y-8 my-8 md:my-0">
       <header className="flex items-center justify-between w-full">
         <div className="w-full ps-4 relative before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-brand-color before:rounded-full">
-          <h4 className="font-bold text-2xl font-nunitoSans text-black">
+          <h4 className="font-bold text-xl md:text-2xl font-nunitoSans text-black">
             {title}
           </h4>
         </div>
-        <div className="flex w-2xl h-14 pe-4 items-center bg-white border border-surface-soft rounded-lg">
+        <div className="hidden w-2xl md:flex h-14 pe-4 items-center bg-white border border-surface-soft rounded-lg">
           <input
             type="text"
             value={valueSearch}
@@ -115,8 +115,8 @@ export default function NewsListContent({
         </div>
       </header>
 
-      <div className="flex flex-col gap-y-32 justify-between">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
+      <div className="flex flex-col gap-y-8 md:gap-y-32 justify-between">
+        <div className="grid grid-cols-1 w-full md:grid-cols-4 gap-16">
           {errorMsg ? (
             Array.from({ length: itemsPerPage }).map((_, i) => (
               <PopularCardError key={i} message={errorMsg} />
